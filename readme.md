@@ -7,10 +7,14 @@
 
 ### Commandes à faire dans le terminal de PyCharm
 
-* Pour votre GITHUB
+* Pour votre GITHUB définir le nom d'utilisateur
 
 
     git config --global user.name "Hi de la 707"
+
+* Pour votre GITHUB définir votre mail
+
+
     git config --global user.email "mail@habituel"
 
 * Pour tenir les versions des packages à jour.
