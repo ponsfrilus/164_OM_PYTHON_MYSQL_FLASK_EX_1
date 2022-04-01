@@ -4,19 +4,12 @@
 
 ### Commandes à faire dans le terminal de PyCharm
 
-* Pour votre GITHUB définir le nom d'utilisateur
+* Pour définir le nom utilisé par Git lors de vos commits :  
+   `git config --global user.name "mon_username_github"`
 
+* Pour définir l'email utilisé par Git lors de vos commits :  
+   `git config --global user.email "mon_mail@habitu.el"`
 
-    git config --global user.name "Hi de la 707"
-
-* Pour votre GITHUB définir votre mail
-
-
-    git config --global user.email "mail@habituel"
-
-* Pour tenir les versions des packages à jour.
-
-Avant d'envoyez votre projet, cette commande est indipensable.
-Cela permet de mettre à jour la liste de tous les packages à installer pour que votre projet fonctionne.
-
-    pip freeze > requirements.txt
+* Pour tenir les versions des packages à jour  
+  Avant d'envoyez votre projet, cette commande est indipensable ; elle permet de mettre à jour la liste de tous les packages à installer pour que votre projet fonctionne :  
+  `pip freeze > requirements.txt`
