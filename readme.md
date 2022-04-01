@@ -2,9 +2,6 @@
 
 ## Horreurs et délices à l'aide Python et FLASK
 
-
-2022.03.20
-
 ### Commandes à faire dans le terminal de PyCharm
 
 * Pour votre GITHUB définir le nom d'utilisateur
@@ -23,4 +20,3 @@ Avant d'envoyez votre projet, cette commande est indipensable.
 Cela permet de mettre à jour la liste de tous les packages à installer pour que votre projet fonctionne.
 
     pip freeze > requirements.txt
-
