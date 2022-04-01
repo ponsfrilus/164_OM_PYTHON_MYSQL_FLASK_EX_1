@@ -1,0 +1,36 @@
+version: '3.9'
+
+services:
+  164_database:
+    image: mariadb:10.6-focal
+    container_name: 164_database
+    # Expose the port on localhost so one can use DBeaver or anything.
+    ports: 
+      - "${PORT_MYSQL:-3306}:3306"
+    environment:
+      MYSQL_USER: "${USER_MYSQL:-user}"
+      MYSQL_PASSWORD: "${PASS_MYSQL:-secret}"
+      MYSQL_ROOT_PASSWORD: "${PASS_MYSQL:-secret}"
+      MYSQL_DATABASE: "${NAME_BD_MYSQL:-164_schema}"
+    volumes:
+      - "./APP_OM_EXERCICES/database/${NAME_FILE_DUMP_SQL_BD_WITHOUT_PATH:-NOM_PRENOM_INFO1X_SUJET_164_2022.sql}:/docker-entrypoint-initdb.d/init_db_164.sql"
+
+  # Add the most famous MySQL GUI client
+  164_phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: 164_phpmyadmin
+    ports: 
+      - 8088:80
+    environment:
+      PMA_HOST: 164_database
+
+  # So we have another GUI client to access the DB
+  164_adminer:
+    image: adminer:latest
+    container_name: 164_adminer
+    ports:
+      - 8089:8080
+    # See https://github.com/TimWolla/docker-adminer/issues/30#issuecomment-655579792
+    command: php -S 0.0.0.0:8080 -t /var/www/html
+    environment:
+      ADMINER_DEFAULT_SERVER: 164_database
